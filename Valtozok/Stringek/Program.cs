@@ -80,6 +80,14 @@ namespace Stringek
             string nev1 = "Nagy  eLek";
             string nev2 = "Nagy Elek";
 
+            if (nev1.Replace(" ","").ToLower()==nev2.Replace(" ","").ToLower())
+            {
+                Console.WriteLine("A nevek megegyeznek!");
+            } else
+            {
+                Console.WriteLine("A nevek nem egyeznek meg");
+            }
+
 
             Console.ReadKey();
         }
