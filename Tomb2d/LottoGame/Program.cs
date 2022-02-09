@@ -48,7 +48,7 @@ namespace LottoGame
                 TombLista(tippek);
                 int szamlalo = 0;
                 //ciklus eleje
-                while (talalat < 3) {
+                while (talalat < 5) {
 
                     talalat = 0;
 
@@ -75,7 +75,7 @@ namespace LottoGame
                                 }   
                         }
                     }
-                    Console.WriteLine($"Találatok száma:{talalat}");
+                    Console.WriteLine($"Találatok száma:{szamlalo},{talalat}");
                     szamlalo++;    
 
                     //ciklus vége
