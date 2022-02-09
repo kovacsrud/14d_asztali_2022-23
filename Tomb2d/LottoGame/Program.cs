@@ -15,7 +15,9 @@ namespace LottoGame
             //Nyerőszámok sorsolása (nem lehet két egyforma)
             //Találatok meghatározása
             //Kiíratás
-
+            //Futtassuk adott találatig a programot!
+            //Határozzuk meg, hogy hány évebe telt volna az adott számú 
+            //találat elérése a megadott tippekkel
 
             char valasz = 'i';
             while (valasz == 'i') {     
