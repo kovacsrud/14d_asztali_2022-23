@@ -46,6 +46,11 @@ namespace LottoGame
 
                 Console.WriteLine("Tippek:");
                 TombLista(tippek);
+                int szamlalo = 0;
+                //ciklus eleje
+                while (talalat < 3) {
+
+                    talalat = 0;
 
                     for (int i = 0; i < hanySzam; i++)
                     {
@@ -57,8 +62,8 @@ namespace LottoGame
                         nyeroszamok[i] = temp;
                     }
             
-                    Console.WriteLine("Nyerőszámok:");
-                    TombLista(nyeroszamok);
+                    //Console.WriteLine("Nyerőszámok:");
+                    //TombLista(nyeroszamok);
 
                     for (int i = 0; i < tippek.Length; i++)
                     {
@@ -70,7 +75,13 @@ namespace LottoGame
                                 }   
                         }
                     }
-                Console.WriteLine($"Találatok száma:{talalat}");
+                    Console.WriteLine($"Találatok száma:{talalat}");
+                    szamlalo++;    
+
+                    //ciklus vége
+                }
+
+                Console.WriteLine($"Ennyi évbe telt:{szamlalo/52}");
                 Console.Write("Akar újra játszani(i/n)");
                 valasz = Console.ReadKey().KeyChar;
                 Console.WriteLine();
