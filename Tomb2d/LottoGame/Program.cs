@@ -16,55 +16,67 @@ namespace LottoGame
             //Találatok meghatározása
             //Kiíratás
 
-            Console.Write("Hány számot húzunk?");
-            var hanySzam = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Mennyi számból sorsolunk?");
-            var osszSzam = Convert.ToInt32(Console.ReadLine());
 
-            int[] tippek = new int[hanySzam];
-            int[] nyeroszamok = new int[hanySzam];
-            Random rand = new Random();
-            int talalat = 0;
-            //Bekérés
-            for (int i = 0; i < hanySzam; i++)
-            {
-                Console.Write($"{i + 1}.tipp:");
-                var temp = Convert.ToInt32(Console.ReadLine());
-                while (temp < 1 || temp > osszSzam || tippek.Contains(temp))
+            char valasz = 'i';
+            while (valasz == 'i') {     
+
+                Console.Write("Hány számot húzunk?");
+                var hanySzam = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Mennyi számból sorsolunk?");
+                var osszSzam = Convert.ToInt32(Console.ReadLine());
+
+                int[] tippek = new int[hanySzam];
+                int[] nyeroszamok = new int[hanySzam];
+                Random rand = new Random();
+                int talalat = 0;
+                //Bekérés
+                for (int i = 0; i < hanySzam; i++)
                 {
-                    Console.Write($"Rossz!{i + 1}.tipp");
-                    temp = Convert.ToInt32(Console.ReadLine());
-                }
-                tippek[i] = temp;
-            }
-
-            Console.WriteLine("Tippek:");
-            TombLista(tippek);
-
-            for (int i = 0; i < hanySzam; i++)
-            {
-                var temp = rand.Next(1, osszSzam + 1);
-                while (nyeroszamok.Contains(temp))
-                {
-                    temp = rand.Next(1, osszSzam + 1);
-                }
-                nyeroszamok[i] = temp;
-            }
-            
-            Console.WriteLine("Nyerőszámok:");
-            TombLista(nyeroszamok);
-
-            for (int i = 0; i < tippek.Length; i++)
-            {
-                for (int j = 0; j < nyeroszamok.Length; j++)
-                {
-                    if (tippek[i]==nyeroszamok[j])
+                    Console.Write($"{i + 1}.tipp:");
+                    var temp = Convert.ToInt32(Console.ReadLine());
+                    while (temp < 1 || temp > osszSzam || tippek.Contains(temp))
                     {
-                        talalat++;
+                        Console.Write($"Rossz!{i + 1}.tipp");
+                        temp = Convert.ToInt32(Console.ReadLine());
                     }
+                    tippek[i] = temp;
                 }
+
+                Console.WriteLine("Tippek:");
+                TombLista(tippek);
+
+                    for (int i = 0; i < hanySzam; i++)
+                    {
+                        var temp = rand.Next(1, osszSzam + 1);
+                        while (nyeroszamok.Contains(temp))
+                        {
+                            temp = rand.Next(1, osszSzam + 1);
+                        }
+                        nyeroszamok[i] = temp;
+                    }
+            
+                    Console.WriteLine("Nyerőszámok:");
+                    TombLista(nyeroszamok);
+
+                    for (int i = 0; i < tippek.Length; i++)
+                    {
+                        for (int j = 0; j < nyeroszamok.Length; j++)
+                        {
+                                if (tippek[i]==nyeroszamok[j])
+                                {
+                                    talalat++;
+                                }   
+                        }
+                    }
+                Console.WriteLine($"Találatok száma:{talalat}");
+                Console.Write("Akar újra játszani(i/n)");
+                valasz = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+
             }
-            Console.WriteLine($"Találatok száma:{talalat}");
+
+
+
 
 
             Console.ReadKey();
