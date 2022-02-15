@@ -13,6 +13,24 @@ namespace OOPalapok
         private int szuletesiEv;
         private string lakhely;
 
+        //A konstruktor automatikusan lefut példányosításkor
+        //nem lehet visszatérési értéke, és void sem lehet
+        public Ember(string vezeteknev,string keresztnev,int szuletesiev,string lakhely)
+        {
+            this.vezeteknev = vezeteknev;
+            this.keresztnev = keresztnev;
+            szuletesiEv = szuletesiev;
+            this.lakhely = lakhely;
+        }
+
+        public Ember()
+        {
+            vezeteknev = "Alap";
+            keresztnev = "Gyula";
+            szuletesiEv = 2000;
+            lakhely = "Elek";
+        }
+
         public int GetEletkor()
         {
             return 2022 - szuletesiEv;
@@ -26,6 +44,11 @@ namespace OOPalapok
         public void SetKeresztnev(string keresztnev)
         {
             this.keresztnev = keresztnev;
+        }
+
+        public string GetNev()
+        {
+            return vezeteknev + " " + keresztnev;
         }
     }
 }

@@ -18,23 +18,19 @@ namespace OOPalapok
             //példány: az osztály alapján létrehozott objektum
 
             //Példányosítás
-            Ember laszlo = new Ember();
-            Ember eva = new Ember();
+            Ember laszlo = new Ember("Horváth","László",1991,"Orosháza");
+            Ember eva = new Ember("Nagy","Éva",1996,"Gyula");
+            Ember ember = new Ember();
 
+            Console.WriteLine(laszlo.GetNev());
+            Console.WriteLine(eva.GetNev());
+            Console.WriteLine(ember.GetNev());
+            //laszlo.SetVezetekNev("Horváth");
+            //laszlo.SetKeresztnev("László");
+            //Console.WriteLine(laszlo.GetNev());
             
-            laszlo.keresztnev = "László";
-            laszlo.vezeteknev = "Horváth";
-            laszlo.szuletesiEv = 1992;
-            laszlo.lakhely = "Orosháza";
-
-            eva.keresztnev = "Éva";
-            eva.vezeteknev = "Kiss";
-            eva.szuletesiEv = 1986;
-
-            Console.WriteLine(laszlo.vezeteknev+" "+laszlo.keresztnev);
             Console.WriteLine(laszlo.GetEletkor());
 
-            Console.WriteLine(eva.vezeteknev + " " + eva.keresztnev);
             Console.WriteLine(eva.GetEletkor());
 
             Console.ReadKey();
