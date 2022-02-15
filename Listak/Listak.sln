@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listak", "Listak\Listak.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeletlenListak", "VeletlenListak\VeletlenListak.csproj", "{45DAEE92-FBED-489A-910A-CC62DAC53F83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorsolas", "Sorsolas\Sorsolas.csproj", "{B0B1DE0E-832C-4329-8E6B-CCF72CB2A389}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{45DAEE92-FBED-489A-910A-CC62DAC53F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45DAEE92-FBED-489A-910A-CC62DAC53F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45DAEE92-FBED-489A-910A-CC62DAC53F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B1DE0E-832C-4329-8E6B-CCF72CB2A389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B1DE0E-832C-4329-8E6B-CCF72CB2A389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B1DE0E-832C-4329-8E6B-CCF72CB2A389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B1DE0E-832C-4329-8E6B-CCF72CB2A389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
