@@ -16,7 +16,7 @@ namespace Autolista
         private string[] rendszam = { "ABC-123", "ZKM-567", "HZU-111", "PKS-119", "DUH-678", "IES-967" };
         //Random rand;
         private List<Auto> _autok;
-        public List<Auto> autok { get { return _autok; } }
+        public  List<Auto> autok { get { return _autok; } }
 
         public Autok(int darab,Random rand)
         {
