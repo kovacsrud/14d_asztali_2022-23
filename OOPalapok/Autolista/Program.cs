@@ -11,13 +11,26 @@ namespace Autolista
     {
         static void Main(string[] args)
         {
-          
 
+            Random rand = new Random();
             Console.Write("Hány elemből álljon a lista?");
             var elemDb = Convert.ToInt32(Console.ReadLine());
 
-            Autok autolista = new Autok(elemDb);
-            Autok masikautok = new Autok(elemDb);
+            Autok autolista = new Autok(elemDb,rand);
+            Autok masikautok = new Autok(elemDb,rand);
+
+            //autolista.autok.Add(
+            //    new Auto
+            //    {
+            //        Marka="pfjpjfpjdf",
+            //        Tipus="sffsdfdfklfd",
+            //        Rendszam="fsdfdsáfdélf",
+            //        FutottKm=123005454,
+            //        GyartasiEv=200654545
+            //    }
+            //    );
+
+            autolista.Ujauto("RKF-119", "Skoda", "Fabia", 2005, 230000);
 
             
 
@@ -26,6 +39,8 @@ namespace Autolista
             Console.WriteLine("---------------------------------");
             Lista(masikautok.autok);
 
+
+            Console.WriteLine("---------------------------------");
             var opelek = masikautok.autok.FindAll(
             x=>x.Marka.ToLower()=="oPeL".ToLower()
             &&

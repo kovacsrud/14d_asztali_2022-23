@@ -7,21 +7,25 @@ using System.Threading.Tasks;
 
 namespace Autolista
 {
+    
     public class Autok
     {
+        
         private string[] markak = { "Fiat", "Opel", "Volkswagen", "BMW", "Kia", "Citroen" };
         private string[] tipus = { "Fabia", "Corsa", "Passat", "Rio", "Xsara", "C4", "C5", "Octavia" };
         private string[] rendszam = { "ABC-123", "ZKM-567", "HZU-111", "PKS-119", "DUH-678", "IES-967" };
-        Random rand;
-        public List<Auto> autok { get; set; }
+        //Random rand;
+        private List<Auto> _autok;
+        public List<Auto> autok { get { return _autok; } }
 
-        public Autok(int darab)
+        public Autok(int darab,Random rand)
         {
-            rand = new Random();
-            autok = new List<Auto>();
+            
+            //rand = new Random();
+            _autok = new List<Auto>();
             for (int i = 0; i < darab; i++)
             {
-                autok.Add(
+                _autok.Add(
                         new Auto
                         {
                             Rendszam = rendszam[rand.Next(0, rendszam.Length - 1)],
@@ -34,6 +38,26 @@ namespace Autolista
                     );
             }
 
+        }
+
+        public void Ujauto(Auto auto)
+        {
+            _autok.Add(auto);
+        }
+
+        public void Ujauto(string rendszam,string marka,string tipus,int gyartasiev,int futottkm)
+        {
+            _autok.Add(
+                new Auto
+                {
+                    Rendszam=rendszam,
+                    Marka=marka,
+                    Tipus=tipus,
+                    GyartasiEv=gyartasiev,
+                    FutottKm=futottkm,
+
+                }
+                ); ;
         }
 
 
