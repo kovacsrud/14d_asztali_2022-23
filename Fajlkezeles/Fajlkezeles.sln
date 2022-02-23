@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fajlkezeles", "Fajlkezeles\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FajlkezelesUsing", "FajlkezelesUsing\FajlkezelesUsing.csproj", "{C6B1A980-AC17-4D0B-982A-17FA548BADCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadAllLines", "ReadAllLines\ReadAllLines.csproj", "{A5B7E78D-2013-475E-9A83-8C8987341E0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C6B1A980-AC17-4D0B-982A-17FA548BADCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6B1A980-AC17-4D0B-982A-17FA548BADCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6B1A980-AC17-4D0B-982A-17FA548BADCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B7E78D-2013-475E-9A83-8C8987341E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B7E78D-2013-475E-9A83-8C8987341E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B7E78D-2013-475E-9A83-8C8987341E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B7E78D-2013-475E-9A83-8C8987341E0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
