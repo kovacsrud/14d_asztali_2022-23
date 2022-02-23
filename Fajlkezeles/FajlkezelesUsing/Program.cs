@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace FajlkezelesUsing
 {
@@ -11,6 +12,8 @@ namespace FajlkezelesUsing
     {
         static void Main(string[] args)
         {
+            Stopwatch stopper = new Stopwatch();
+            stopper.Start();
        
             try
             {
@@ -21,7 +24,8 @@ namespace FajlkezelesUsing
                     reader.ReadLine();
                     while (!reader.EndOfStream)
                     {
-                        Console.WriteLine(reader.ReadLine());
+                        //Console.WriteLine(reader.ReadLine());
+                        reader.ReadLine();
                     }
                 }
                                             
@@ -31,6 +35,10 @@ namespace FajlkezelesUsing
             {
                 Console.WriteLine(ex.Message);
             }
+
+            stopper.Stop();
+
+            Console.WriteLine(stopper.ElapsedTicks);
 
             Console.ReadKey();
             

@@ -12,6 +12,8 @@ namespace ReadAllLines
     {
         static void Main(string[] args)
         {
+            Stopwatch stopper = new Stopwatch();
+            stopper.Start();
             
             List<Dolgozo> dolgozok = new List<Dolgozo>();
             try
@@ -28,6 +30,8 @@ namespace ReadAllLines
                 Console.WriteLine(ex.StackTrace);
             }
 
+            stopper.Stop();
+            Console.WriteLine($"Végrehajtás ideje:{stopper.ElapsedTicks}");
             Console.WriteLine($"Elemek száma:{dolgozok.Count}");
 
             var nok = dolgozok.FindAll(x => x.Neme == "nő");
@@ -66,17 +70,21 @@ namespace ReadAllLines
 
             try
             {
-                FileStream fajl = new FileStream("belepok2000.txt", FileMode.Create);
-                StreamWriter writer = new StreamWriter(fajl,Encoding.UTF8);
-                writer.WriteLine("Név;Neme;Részleg;Belépés;Bér");
+                FileStream fajl = new FileStream("belepok2000rossz.txt", FileMode.Create);
 
-                foreach (var i in belepes2000Utan)
+                using (StreamWriter writer = new StreamWriter(fajl, Encoding.UTF8))
                 {
-                    writer.WriteLine($"{i.Nev};{i.Neme};{i.Reszleg};{i.Belepes};{i.Ber}");
+                    writer.WriteLine("Név;Neme;Részleg;Belépés;Bér");
+
+                    foreach (var i in belepes2000Utan)
+                    {
+                        writer.WriteLine($"{i.Nev};{i.Neme};{i.Reszleg};{i.Belepes};{i.Ber}");
+                    }
                 }
+                               
 
                 Console.WriteLine("Írás kész");
-                writer.Close();
+               
 
             }
             catch (Exception ex)

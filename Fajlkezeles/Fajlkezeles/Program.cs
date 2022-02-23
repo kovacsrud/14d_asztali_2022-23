@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Fajlkezeles
 {
@@ -13,6 +14,8 @@ namespace Fajlkezeles
         {
             FileStream fajl = null;
             StreamReader reader = null;
+            Stopwatch stopper = new Stopwatch();
+            stopper.Start();
             try
             {
                 fajl = new FileStream("berek2020.txt", FileMode.Open);
@@ -21,7 +24,8 @@ namespace Fajlkezeles
                 reader.ReadLine();
                 while (!reader.EndOfStream)
                 {
-                    Console.WriteLine(reader.ReadLine());
+                    //Console.WriteLine(reader.ReadLine());
+                    reader.ReadLine();
                 }
 
                
@@ -38,6 +42,8 @@ namespace Fajlkezeles
                 }
             }
 
+            stopper.Stop();
+            Console.WriteLine(stopper.ElapsedTicks);
             Console.ReadKey();
         }
     }
