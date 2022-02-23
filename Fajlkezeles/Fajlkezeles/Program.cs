@@ -11,20 +11,31 @@ namespace Fajlkezeles
     {
         static void Main(string[] args)
         {
+            FileStream fajl = null;
+            StreamReader reader = null;
             try
             {
-                FileStream fajl = new FileStream("berek2020.txt", FileMode.Open);
-                StreamReader reader = new StreamReader(fajl, Encoding.UTF8);
+                fajl = new FileStream("berek2020.txt", FileMode.Open);
+                reader = new StreamReader(fajl, Encoding.UTF8);
+
+                reader.ReadLine();
                 while (!reader.EndOfStream)
                 {
                     Console.WriteLine(reader.ReadLine());
                 }
 
-                reader.Close();
+               
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);                
+            }
+            finally
+            {
+                if(reader!=null)
+                {
+                    reader.Close();
+                }
             }
 
             Console.ReadKey();
