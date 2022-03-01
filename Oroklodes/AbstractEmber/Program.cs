@@ -53,6 +53,20 @@ namespace AbstractEmber
             emberek.Add(nyugdijas1);
             emberek.Add(nyugdijas2);
 
+            foreach (var i in emberek)
+            {
+                //Console.WriteLine($"{i.VezetekNev},{i.KeresztNev},{i.Eletkor()}");
+                if (i.GetType()==typeof(Sportolo))
+                {
+                    Sportolo sportolo = (Sportolo)i;
+                    Console.WriteLine($"Ez egy sportoló! Sportága:{sportolo.Sportag}");
+                }
+                if (i.GetType()==typeof(Nyugdijas))
+                {
+                    Nyugdijas ny = (Nyugdijas)i;
+                    Console.WriteLine($"Ez egy nyugdíjas! Ennyit dolgozott:{ny.HanyEvetDolgozott}");
+                }
+            }
 
             Console.ReadKey();
         }
