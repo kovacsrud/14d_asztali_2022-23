@@ -11,19 +11,8 @@ namespace Hegyseg
     {
         static void Main(string[] args)
         {
-            List<Hegycsucs> hegycsucsok = new List<Hegycsucs>();
-            try
-            {
-                var sorok = File.ReadAllLines("hegyek.txt",Encoding.Default);
-                for (int i = 0; i < sorok.Length; i++)
-                {
-                    hegycsucsok.Add(new Hegycsucs(sorok[i]));
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);                
-            }
+            var hegycsucsok = new Hegycsucsok("hegyek.txt",';').HegycsucsLista;
+            //var hegycsucsok = hegycsucsAdat.HegycsucsLista;
 
             Console.WriteLine($"Sorok:{hegycsucsok.Count}");
 
