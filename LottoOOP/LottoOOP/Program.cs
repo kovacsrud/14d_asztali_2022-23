@@ -10,6 +10,14 @@ namespace LottoOOP
     {
         static void Main(string[] args)
         {
+            Lottojatek lottojatek = new Lottojatek(5, 90);
+            lottojatek.Jatek();
+
+            Lottojatek lottojatek45 = new Lottojatek(7, 45);
+            lottojatek45.Jatek();
+
+            Lottojatek lottojatek33 = new Lottojatek(7, 33);
+            lottojatek33.Jatek();
 
             Console.ReadKey();
         }
