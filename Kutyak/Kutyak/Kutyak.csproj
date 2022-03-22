@@ -43,15 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KutyaAdatok.cs" />
     <Compile Include="Kutyafajta.cs" />
     <Compile Include="Kutyak.cs" />
     <Compile Include="Kutyanev.cs" />
+    <Compile Include="ListaKutyafajta.cs" />
+    <Compile Include="ListaKutyak.cs" />
     <Compile Include="ListaKutyanev.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="kutyafajtak.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="kutyak.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="kutyanevek.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
