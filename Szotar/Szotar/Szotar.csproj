@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BCC3C687-9FBF-442B-9560-78EEFC0BC445}</ProjectGuid>
+    <ProjectGuid>{6489486E-2136-468C-8B73-A7EE25FD48B7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Kutyak</RootNamespace>
-    <AssemblyName>Kutyak</AssemblyName>
+    <RootNamespace>Szotar</RootNamespace>
+    <AssemblyName>Szotar</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Kutyafajta.cs" />
-    <Compile Include="Kutyak.cs" />
-    <Compile Include="Kutyanev.cs" />
-    <Compile Include="ListaKutyanev.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
