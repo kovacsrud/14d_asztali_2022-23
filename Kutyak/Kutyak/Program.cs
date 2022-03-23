@@ -90,7 +90,7 @@ namespace Kutyak
                 }
                 catch (Exception ex)
                 {
-                                        
+                    Console.WriteLine(ex.Message);                
                 }
 
             }

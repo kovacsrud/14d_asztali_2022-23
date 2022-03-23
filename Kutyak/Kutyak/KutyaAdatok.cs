@@ -22,6 +22,11 @@ namespace Kutyak
             //Fajtak = new List<Kutyafajta>();
             Fajtak = Kutyafajtak.Kutyafajtak;
         }
+
+        public void Fajlbair(object lista,string fajlnev)
+        {
+            
+        }
     }
 
     
