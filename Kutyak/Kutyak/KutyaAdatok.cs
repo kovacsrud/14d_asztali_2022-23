@@ -26,6 +26,7 @@ namespace Kutyak
         public void Fajlbair(object lista,string fajlnev)
         {
             
+            
         }
     }
 
