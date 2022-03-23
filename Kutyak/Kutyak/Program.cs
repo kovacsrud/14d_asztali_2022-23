@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,25 @@ namespace Kutyak
                 //}
 
                 Console.WriteLine($"{maxLeterhelt.First().Key.Year}.{maxLeterhelt.First().Key.Month}.{maxLeterhelt.First().Key.Day} - {maxLeterhelt.First().Count()}");
+
+                var nevstat = osszes.ToLookup(x => x.Kutya_neve).OrderByDescending(x => x.Count());
+
+                try
+                {
+                    FileStream fajl = new FileStream("nevstatisztika.txt",FileMode.Create);
+                    using (StreamWriter writer = new StreamWriter(fajl, Encoding.UTF8))
+                    {
+                        foreach (var i in nevstat)
+                        {
+                            writer.WriteLine($"{i.Key};{i.Count()}");
+                        }
+                    }
+                    Console.WriteLine("Kiírás kész!");
+                }
+                catch (Exception ex)
+                {
+                                        
+                }
 
             }
             catch (Exception ex)
