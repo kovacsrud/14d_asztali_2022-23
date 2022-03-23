@@ -34,10 +34,44 @@ namespace Kutyak
                         (n, kf) => new {n.Id,n.Kor,n.Kutya_neve,n.UtolsoEllenorzes,kf.Nev }
                     ); 
                 
-                foreach (var i in nevvel)
+                //foreach (var i in nevvel)
+                //{
+                //    Console.WriteLine($"{i.Id},{i.Kor},{i.Kutya_neve},{i.UtolsoEllenorzes}");
+                //}
+
+                var avgEletkor = osszes.Average(x => x.Kor);
+                Console.WriteLine($"A kutyák átlagéletkora:{avgEletkor:0.00}");
+
+                var legidosebb = osszes.First(x => x.Kor == osszes.Max(y => y.Kor));
+                Console.WriteLine($"{legidosebb.Kutya_neve},{legidosebb.Nev}");
+
+                var legidosebbW = osszes.Where(x => x.Kor == osszes.Max(y => y.Kor));
+
+                Console.WriteLine($"{legidosebbW.First().Kutya_neve},{legidosebbW.First().Nev}");
+
+                foreach (var i in legidosebbW)
                 {
-                    Console.WriteLine($"{i.Id},{i.Kor},{i.Kutya_neve},{i.UtolsoEllenorzes}");
+                    Console.WriteLine($"{i.Kutya_neve},{i.Nev},{i.Kor}");
                 }
+
+                var adottNap = osszes.Where(x=>x.UtolsoEllenorzes.Year==2018
+                && x.UtolsoEllenorzes.Month==1               
+                && x.UtolsoEllenorzes.Day==10);
+
+                var stat = adottNap.ToLookup(x=>x.Nev);
+                foreach (var i in stat)
+                {
+                    Console.WriteLine($"{i.Key} - {i.Count()} kutya");
+                }
+
+                var maxLeterhelt = osszes.ToLookup(x=>new {x.UtolsoEllenorzes.Year,x.UtolsoEllenorzes.Month,x.UtolsoEllenorzes.Day }).OrderByDescending(x=>x.Count());
+
+                //foreach (var i in maxLeterhelt)
+                //{
+                //    Console.WriteLine($"{i.Key.Year}.{i.Key.Month}.{i.Key.Day} - {i.Count()}");
+                //}
+
+                Console.WriteLine($"{maxLeterhelt.First().Key.Year}.{maxLeterhelt.First().Key.Month}.{maxLeterhelt.First().Key.Day} - {maxLeterhelt.First().Count()}");
 
             }
             catch (Exception ex)
