@@ -33,6 +33,7 @@ namespace WpfElemek
             {
                 MessageBox.Show(ex.Message);                
             }
+            buttonReset.IsEnabled = false;
             datagridElemek.ItemsSource = elemek.Elemek;
             
         }
@@ -43,6 +44,7 @@ namespace WpfElemek
             if (vegyjel.Count > 0)
             {
                 datagridElemek.ItemsSource = vegyjel;
+                buttonReset.IsEnabled = true;
             } else
             {
                 MessageBox.Show("Nincs ilyen vegyjel!");
@@ -52,6 +54,8 @@ namespace WpfElemek
         private void buttonReset_Click(object sender, RoutedEventArgs e)
         {
             datagridElemek.ItemsSource = elemek.Elemek;
+            buttonReset.IsEnabled = false;
+            textboxVegyjel.Text = "";
         }
     }
 }
