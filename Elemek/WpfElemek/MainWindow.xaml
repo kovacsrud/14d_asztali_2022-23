@@ -16,7 +16,7 @@
             <TextBox x:Name="textboxVegyjel" FontSize="22" Width="300"/>
             <Button x:Name="buttonKeres" Content="Keresés" FontSize="20" Click="buttonKeres_Click" />
             <Button x:Name="buttonReset" Content="Visszaállít" FontSize="20" Margin="10,0,0,0" Click="buttonReset_Click"/>
-
+        <!--ide jöhet a komment-->
         </WrapPanel>
 
     </Grid>
