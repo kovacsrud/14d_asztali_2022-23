@@ -11,7 +11,7 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="datagridElemek" ColumnWidth="*"/>
+        <DataGrid x:Name="datagridElemek" ColumnWidth="*" IsReadOnly="True"/>
         <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox x:Name="textboxVegyjel" FontSize="22" Width="300"/>
             <Button x:Name="buttonKeres" Content="Keresés" FontSize="20" Click="buttonKeres_Click" />
