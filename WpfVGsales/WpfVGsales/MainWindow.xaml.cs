@@ -37,6 +37,7 @@ namespace WpfVGsales
                 {
                     games = new Games(dialog.FileName, ';');
                     datagridGames.ItemsSource = games.GameSales;
+                    tabitemKereses.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -50,8 +51,16 @@ namespace WpfVGsales
             if (textboxKeres.Text.Length>0)
             {
                 var eredmeny = games.GameSales.FindAll(x=>x.Name.ToLower().Contains(textboxKeres.Text.ToLower()));
-                datagridGames.ItemsSource = eredmeny;
-                tabitemKereses.IsEnabled = true;
+                if (eredmeny.Count==0)
+                {
+                    MessageBox.Show("Nincs ilyen játék!");
+                }
+                else
+                {
+                    datagridGames.ItemsSource = eredmeny;
+                }
+                
+                
             } else
             {
                 MessageBox.Show("Legalább egy karaktert adjon meg kereséskor!");
