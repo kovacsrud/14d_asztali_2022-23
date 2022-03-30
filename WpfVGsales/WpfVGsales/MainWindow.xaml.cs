@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,41 @@ namespace WpfVGsales
     /// </summary>
     public partial class MainWindow : Window
     {
+        Games games;
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void buttonBetolt_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            try
+            {
+                if (dialog.ShowDialog()==true)
+                {
+                    games = new Games(dialog.FileName, ';');
+                    datagridGames.ItemsSource = games.GameSales;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);                
+            }
+        }
+
+        private void buttonKeres_Click(object sender, RoutedEventArgs e)
+        {
+            if (textboxKeres.Text.Length>0)
+            {
+                var eredmeny = games.GameSales.FindAll(x=>x.Name.ToLower().Contains(textboxKeres.Text.ToLower()));
+                datagridGames.ItemsSource = eredmeny;
+                tabitemKereses.IsEnabled = true;
+            } else
+            {
+                MessageBox.Show("Legalább egy karaktert adjon meg kereséskor!");
+            }
         }
     }
 }

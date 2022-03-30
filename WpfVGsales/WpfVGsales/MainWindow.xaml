@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="Betöltés" >
+                <Button x:Name="buttonBetolt" Width="200" Height="30" Content="Betöltés" Click="buttonBetolt_Click" />
+            </TabItem>
+            <TabItem Header="Keresés" x:Name="tabitemKereses" IsEnabled="False">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="datagridGames" ColumnWidth="*"/>
+                    <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBox x:Name="textboxKeres" Width="300" FontSize="22" />
+                        <Button x:Name="buttonKeres" Content="Keresés" FontSize="20" Click="buttonKeres_Click" />
+                    </WrapPanel>
+
+                </Grid>
+              
+            </TabItem>
+        </TabControl>
         
     </Grid>
 </Window>
