@@ -20,5 +20,35 @@ namespace WpfVGsales
                 GameSales.Add(new Game(sorok[i], hatarolo));
             }
         }
+
+        public List<string> GetPlatforms()
+        {
+            List<string> items = new List<string>();
+
+            var stat = GameSales.ToLookup(x => x.Platform).OrderBy(x => x.Key);
+
+            foreach (var i in stat)
+            {
+                items.Add(i.Key);
+            }
+
+
+            return items;
+        }
+
+        public List<string> GetGenres()
+        {
+            List<string> items = new List<string>();
+
+            var stat = GameSales.ToLookup(x => x.Genre).OrderBy(x => x.Key);
+
+            foreach (var i in stat)
+            {
+                items.Add(i.Key);
+            }
+
+
+            return items;
+        }
     }
 }

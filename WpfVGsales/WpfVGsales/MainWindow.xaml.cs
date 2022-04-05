@@ -38,6 +38,10 @@ namespace WpfVGsales
                     games = new Games(dialog.FileName, ';');
                     datagridGames.ItemsSource = games.GameSales;
                     tabitemKereses.IsEnabled = true;
+                    tabPlatform.IsEnabled = true;
+                    datagridPlatform.ItemsSource = games.GameSales;
+                    comboboxPlatform.ItemsSource = games.GetPlatforms();
+                    comboboxPlatform.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
@@ -65,6 +69,17 @@ namespace WpfVGsales
             {
                 MessageBox.Show("Legalább egy karaktert adjon meg kereséskor!");
             }
+        }
+
+        
+
+        private void comboboxPlatform_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var keresett = Convert.ToString(comboboxPlatform.SelectedItem);
+
+            var eredmeny = games.GameSales.FindAll(x => x.Platform == keresett);
+
+            datagridPlatform.ItemsSource = eredmeny;
         }
     }
 }

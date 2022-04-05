@@ -26,6 +26,16 @@
                 </Grid>
               
             </TabItem>
+            <TabItem Header="Keresés platform szerint" x:Name="tabPlatform" IsEnabled="False">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="datagridPlatform" ColumnWidth="*" />
+                    <ComboBox x:Name="comboboxPlatform" Grid.Row="1" Width="200" Height="30" SelectionChanged="comboboxPlatform_SelectionChanged"/>
+                </Grid>
+            </TabItem>
         </TabControl>
         
     </Grid>
