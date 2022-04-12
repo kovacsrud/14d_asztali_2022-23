@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -92,5 +93,13 @@ namespace WpfNotepad
             Environment.Exit(0);
         }
 
+        private void Nevjegy_Click(object sender,RoutedEventArgs e)
+        {
+            Nevjegy nevjegy = new Nevjegy();
+            nevjegy.ShowDialog();
+
+        }
+
+       
     }
 }
