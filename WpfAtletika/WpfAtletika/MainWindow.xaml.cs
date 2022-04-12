@@ -43,6 +43,7 @@ namespace WpfAtletika
             {
                 listboxVersenyszam.Items.Add(i.Key);
             }
+            listboxVersenyszam.SelectedIndex = 0;
 
         }
 
@@ -55,6 +56,25 @@ namespace WpfAtletika
                 listboxNemzetek.Items.Add(i.Key);
             }
             buttonAranyos.Visibility = Visibility.Hidden;
+        }
+
+        private void buttonKeres_Click(object sender, RoutedEventArgs e)
+        {
+                        
+            var versenySzam = Convert.ToString(listboxVersenyszam.SelectedItem);
+                        
+            var erem = Convert.ToInt32(comboErem.SelectedItem);
+
+            var versenyzo = atletikaVB.Versenyzok.Find(x=>x.Versenyszam==versenySzam && x.Erem==erem);
+            if (versenyzo==null)
+            {
+                MessageBox.Show("Nincs ilyen versenyző!");
+            } else
+            {
+                labelNev.Content = versenyzo.Versenyzonev;
+                labelNemzet.Content = versenyzo.Nemzet;
+                labelEredmeny.Content = versenyzo.Eredmeny;
+            }
         }
     }
 }
