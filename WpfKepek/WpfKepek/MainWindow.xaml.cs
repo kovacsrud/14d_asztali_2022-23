@@ -35,7 +35,15 @@ namespace WpfKepek
             {
                 if (dialog.ShowDialog()==true)
                 {
-                    imageKep.Source = new BitmapImage(new Uri(dialog.FileName));
+                    //imageKep.Source = new BitmapImage(new Uri(dialog.FileName));
+                    for (int i = 0; i < dialog.FileNames.Length; i++)
+                    {
+                        
+                        var image = new Image();
+                        var bitmap = new BitmapImage(new Uri(dialog.FileNames[i]));
+                        image.Source = bitmap;
+                        wrapImages.Children.Add(image);
+                    }
                     
                 }
             }

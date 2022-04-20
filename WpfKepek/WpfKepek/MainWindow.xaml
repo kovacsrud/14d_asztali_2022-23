@@ -11,7 +11,9 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="imageKep" />
+        <ScrollViewer  VerticalScrollBarVisibility="Visible">
+        <WrapPanel x:Name="wrapImages" />
+        </ScrollViewer>
         <Button x:Name="buttonBetolt" Content="Betöltés" Grid.Row="1" Width="100" Height="30" Click="buttonBetolt_Click" />
 
     </Grid>
