@@ -20,9 +20,25 @@ namespace WpfIdojaras
     /// </summary>
     public partial class MainWindow : Window
     {
+        AdatAdapter adapter;
         public MainWindow()
         {
             InitializeComponent();
+            adapter = new AdatAdapter();
+            datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.IdojarasLista;
+            listboxEvek.ItemsSource = adapter.idojarasAdatok.GetEvek();
+        }
+
+        private void listboxEvek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listboxHonapok.ItemsSource = adapter.idojarasAdatok.GetHonapok((int)listboxEvek.SelectedItem);
+            datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.GetAdatok((int)listboxEvek.SelectedItem);
+        }
+
+        private void listboxHonapok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listboxNapok.ItemsSource = adapter.idojarasAdatok.GetNapok((int)listboxEvek.SelectedItem,(int)listboxHonapok.SelectedItem);
+            datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.GetAdatok((int)listboxEvek.SelectedItem,(int)listboxHonapok.SelectedItem);
         }
     }
 }
