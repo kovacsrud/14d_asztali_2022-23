@@ -34,6 +34,23 @@ namespace WpfIdojaras
             return evek;
         }
 
+        public Dictionary<List<int>,List<Idojaras>> GetH(int ev)
+        {
+            Dictionary<List<int>, List<Idojaras>> dataDict = new Dictionary<List<int>, List<Idojaras>>();
+            List<int> honapok = new List<int>();
+            var evLista = IdojarasLista.FindAll(x => x.Ev == ev);
+            var evStat = evLista.ToLookup(x => x.Honap).OrderBy(x => x.Key);
+                       
+
+            foreach (var i in evStat)
+            {
+                honapok.Add(i.Key);
+            }
+            
+            dataDict[honapok] = evLista;
+            return dataDict;
+        }
+
         public List<int> GetHonapok(int ev)
         {
             List<int> honapok = new List<int>();
@@ -72,6 +89,13 @@ namespace WpfIdojaras
         public List<Idojaras> GetAdatok(int ev,int honap)
         {
             var evLista = IdojarasLista.FindAll(x => x.Ev == ev && x.Honap==honap);
+
+            return evLista;
+        }
+
+        public List<Idojaras> GetAdatok(int ev, int honap,int nap)
+        {
+            var evLista = IdojarasLista.FindAll(x => x.Ev == ev && x.Honap == honap && x.Nap==nap);
 
             return evLista;
         }

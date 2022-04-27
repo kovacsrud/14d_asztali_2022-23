@@ -31,14 +31,22 @@ namespace WpfIdojaras
 
         private void listboxEvek_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listboxHonapok.ItemsSource = adapter.idojarasAdatok.GetHonapok((int)listboxEvek.SelectedItem);
-            datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.GetAdatok((int)listboxEvek.SelectedItem);
+            var adatok = adapter.idojarasAdatok.GetH((int)listboxEvek.SelectedItem);
+            listboxHonapok.ItemsSource = adatok.Keys.First();
+            //listboxHonapok.ItemsSource = adapter.idojarasAdatok.GetHonapok((int)listboxEvek.SelectedItem);
+            //datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.GetAdatok((int)listboxEvek.SelectedItem);
+            datagridIdojarasAdatok.ItemsSource = adatok.Values.First();
         }
 
         private void listboxHonapok_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             listboxNapok.ItemsSource = adapter.idojarasAdatok.GetNapok((int)listboxEvek.SelectedItem,(int)listboxHonapok.SelectedItem);
             datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.GetAdatok((int)listboxEvek.SelectedItem,(int)listboxHonapok.SelectedItem);
+        }
+
+        private void listboxNapok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datagridIdojarasAdatok.ItemsSource = adapter.idojarasAdatok.GetAdatok((int)listboxEvek.SelectedItem, (int)listboxHonapok.SelectedItem,(int)listboxNapok.SelectedItem);
         }
     }
 }
