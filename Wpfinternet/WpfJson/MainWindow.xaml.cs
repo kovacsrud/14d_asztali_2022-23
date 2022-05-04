@@ -32,10 +32,12 @@ namespace WpfJson
             try
             {
                 posts = JObject.Parse(new WebClient().DownloadString("https://reqres.in/api/users"));
-                //Debug.WriteLine(posts);
+                
                 result = posts.ToObject<UserResult>();
 
-                datagridUsers.ItemsSource = result.data;
+                DataContext = result;
+                //datagridUsers.DataContext = result;
+                //datagridUsers.ItemsSource = result.data;
 
                 //for (int i = 0; i < result.data.Count; i++)
                 //{

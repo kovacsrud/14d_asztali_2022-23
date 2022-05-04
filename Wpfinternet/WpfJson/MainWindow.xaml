@@ -7,7 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="datagridUsers" ColumnWidth="*"/>
+        <DataGrid x:Name="datagridUsers" ItemsSource="{Binding data}" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="E-mail cím" FontSize="20"  Binding="{Binding email}"  />
+                <DataGridTextColumn Header="Vezetéknév" FontSize="20" Binding="{Binding first_name}" />
+                <DataGridTextColumn Header="Keresztnév" FontSize="20" Binding="{Binding last_name}" />
+                <DataGridTemplateColumn Header="A felhasználó képe">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding avatar}" Width="100" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
