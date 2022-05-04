@@ -32,7 +32,9 @@ namespace Wpfinternet
             //BitmapImage bitmap = new BitmapImage(new Uri("https://taszi.hu/kepek/kepkezelo/large/5995.jpg"));
             BitmapImage bitmap = new BitmapImage();
             MemoryStream ms = new MemoryStream(kepAdat);
+            ms.Position = 0;
             bitmap.BeginInit();
+            bitmap.CacheOption = BitmapCacheOption.OnLoad;
             bitmap.StreamSource = ms;
             bitmap.EndInit();
 
