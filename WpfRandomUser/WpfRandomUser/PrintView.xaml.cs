@@ -32,11 +32,13 @@ namespace WpfRandomUser
             Paragraph cim = new Paragraph(new Run("Felhasználók listája"));
             cim.TextAlignment = TextAlignment.Center;
             cim.Foreground = Brushes.Blue;
+            cim.FontSize = 30;
             flowUsers.Blocks.Add(cim);
 
             foreach (var i in users.results)
             {
                 Paragraph nev = new Paragraph();
+                
                 nev.Inlines.Add(new Bold(new Run("Név:")));
                 nev.Inlines.Add(new Run($"{i.name.title}.{i.name.first} {i.name.last}"));
                 flowUsers.Blocks.Add(nev);
