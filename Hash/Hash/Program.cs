@@ -37,7 +37,7 @@ namespace Hash
 
             var hellohash = hashMaker.CreateHash(HashType.MD5, szoveg);
 
-            var filehash = hashMaker.CreateHash(HashType.SHA1,"nevekGUI.txt");
+            var filehash = hashMaker.CreateHash(HashType.SHA256,"nevekGUI.txt");
 
             Console.WriteLine(hellohash);
             Console.WriteLine(filehash);
