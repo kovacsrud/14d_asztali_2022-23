@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfQrCode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfQrCode"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Kódolás">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="imageQRcode" />
+                <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+                    <TextBox x:Name="textboxQrSzoveg" Width="600" FontSize="18" />
+                    <Button x:Name="buttonCoding" Content="Kód generálás" FontSize="16" Click="buttonCoding_Click"/>
+                </WrapPanel>
+
+            </Grid>
+
+        </TabItem>
+        <TabItem Header="Dekódolás">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="imageQRDecode" />
+                <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+                    <TextBox x:Name="textboxQrDecodeSzoveg" Width="600" FontSize="18" />
+                    <Button x:Name="buttonDeCoding" Content="Dekódolás" FontSize="16" />
+                    <Button x:Name="buttonOpen" Content="Tallózás" Margin="10,0,0,0" FontSize="16" Click="buttonOpen_Click" />
+                </WrapPanel>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+    
+</Window>
