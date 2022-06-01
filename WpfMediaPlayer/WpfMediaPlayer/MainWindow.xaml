@@ -17,7 +17,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <MediaElement x:Name="mediaPlayer" />
+        <MediaElement x:Name="mediaPlayer" MediaOpened="mediaPlayer_MediaOpened" />
         <ListBox x:Name="listboxPlayList" ItemsSource="{Binding MediaItems,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="5,0,0,0" SelectionChanged="listboxPlayList_SelectionChanged" >
             <ListBox.ItemTemplate>
                 <DataTemplate>

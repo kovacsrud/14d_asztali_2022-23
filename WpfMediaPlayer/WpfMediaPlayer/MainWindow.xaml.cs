@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfMediaPlayer
 {
@@ -22,29 +23,44 @@ namespace WpfMediaPlayer
     public partial class MainWindow : Window
     {
         MediaList mediaList { get; set; }
+        DispatcherTimer mediaTimer;
+        double TotalTime;
         public MainWindow()
         {
             InitializeComponent();
             mediaPlayer.LoadedBehavior = MediaState.Manual;
             mediaList = new MediaList();
             listboxPlayList.DataContext = mediaList;
+            mediaTimer = new DispatcherTimer();
             
-            //mediaPlayer.Source = new Uri(@"d:\rud\tesztvideo.mp4");
+            
         }
 
         private void Play_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             mediaPlayer.Play();
+            if (!mediaTimer.IsEnabled)
+            {
+                mediaTimer.Start();
+            }
         }
 
         private void Stop_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             mediaPlayer.Stop();
+            if (mediaTimer.IsEnabled)
+            {
+                mediaTimer.Stop();
+            }
         }
 
         private void Pause_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             mediaPlayer.Pause();
+            if (mediaTimer.IsEnabled)
+            {
+                mediaTimer.Stop();
+            }
         }
 
         private void FileOpen_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -66,6 +82,28 @@ namespace WpfMediaPlayer
         {
             MediaItem actElem = (MediaItem)listboxPlayList.SelectedItem;
             mediaPlayer.Source = new Uri(actElem.FullPath);
+        }
+
+        private void mediaPlayer_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            if (mediaPlayer.NaturalDuration.HasTimeSpan)
+            {
+                mediaSlider.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;
+                TotalTime= mediaPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;
+            }
+
+            mediaTimer.Interval = TimeSpan.FromSeconds(1);
+            mediaTimer.Tick +=SliderUpdate;
+            mediaTimer.Start();
+        }
+
+        private void SliderUpdate(object sender,EventArgs e)
+        {
+            if (TotalTime>0)
+            {
+                var setval = mediaPlayer.Position.TotalMilliseconds;
+                mediaSlider.Value = setval;
+            }
         }
     }
 }
