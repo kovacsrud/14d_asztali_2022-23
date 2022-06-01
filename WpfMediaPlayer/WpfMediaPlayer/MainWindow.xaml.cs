@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,15 @@ namespace WpfMediaPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        MediaList mediaList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             mediaPlayer.LoadedBehavior = MediaState.Manual;
-            mediaPlayer.Source = new Uri(@"d:\rud\tesztvideo.mp4");
+            mediaList = new MediaList();
+            listboxPlayList.DataContext = mediaList;
+            
+            //mediaPlayer.Source = new Uri(@"d:\rud\tesztvideo.mp4");
         }
 
         private void Play_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -40,6 +45,27 @@ namespace WpfMediaPlayer
         private void Pause_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             mediaPlayer.Pause();
+        }
+
+        private void FileOpen_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = true;
+            if (dialog.ShowDialog()==true)
+            {
+                if (dialog.FileNames.Length>0)
+                {
+                    mediaList.SetMediaList(dialog.FileNames, '\\');
+                    listboxPlayList.SelectedIndex = 0;
+
+                }
+            }
+        }
+
+        private void listboxPlayList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MediaItem actElem = (MediaItem)listboxPlayList.SelectedItem;
+            mediaPlayer.Source = new Uri(actElem.FullPath);
         }
     }
 }
