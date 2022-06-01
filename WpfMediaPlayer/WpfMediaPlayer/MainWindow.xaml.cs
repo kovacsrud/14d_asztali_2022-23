@@ -105,5 +105,11 @@ namespace WpfMediaPlayer
                 mediaSlider.Value = setval;
             }
         }
+
+        private void mediaSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)mediaSlider.Value);
+            mediaPlayer.Position = ts;
+        }
     }
 }
