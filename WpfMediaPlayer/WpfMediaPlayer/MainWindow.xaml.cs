@@ -82,6 +82,7 @@ namespace WpfMediaPlayer
         {
             MediaItem actElem = (MediaItem)listboxPlayList.SelectedItem;
             mediaPlayer.Source = new Uri(actElem.FullPath);
+            
         }
 
         private void mediaPlayer_MediaOpened(object sender, RoutedEventArgs e)
