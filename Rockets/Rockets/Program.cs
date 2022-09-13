@@ -30,7 +30,7 @@ namespace Rockets
             var raketaAr = rockets.FindAll(x=>x.Price!=-1);
 
             //Árral rendelkező rakéták darabszáma, áruk átlaga
-            Console.WriteLine();
+            Console.WriteLine($"Darabszám:{raketaAr.Count},Átlagos ár:{raketaAr.Average(x=>x.Price):0.00}");
 
             //foreach (var i in raketaAr)
             //{
