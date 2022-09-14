@@ -60,8 +60,26 @@ namespace Rockets
             Fokozatok száma:{minRocket.Stages}
             Átmérő:{minRocket.FairingDiameter}");
 
+            //Készítsünk összesítést, amely megmutatja, hogy az adott
+            //státuszú rakétákból mennyi van!
 
+            var statusStat = rockets.ToLookup(x=>x.Status);
 
+            foreach (var i in statusStat)
+            {
+                Console.WriteLine($"{i.Key}:{i.Count()} db");
+            }
+            Console.WriteLine("========================================");
+            
+            var statusStagesStat = rockets.ToLookup(x =>new {x.Status,x.Stages}).OrderBy(x=>x.Key.Status).ThenBy(x=>x.Key.Stages);
+
+            foreach (var i in statusStagesStat)
+            {
+                Console.WriteLine($"{i.Key.Status},{i.Key.Stages}:{i.Count()},{i.Max(x=>x.RocketHeight)}");
+            }
+
+            //Készítsünk keresést a rakéta neve szerint, kis és nagybetűk ne legyenek 
+            //megkülönböztetve, tartalmazást vizsgáljon
 
             Console.ReadKey();
         }
