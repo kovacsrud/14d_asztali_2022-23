@@ -12,9 +12,13 @@ namespace Rockets
         static void Main(string[] args)
         {
             List<Rocket> rockets = new List<Rocket>();
+            string fejlec = "";
             try
             {
                 var sorok = File.ReadAllLines("all-rockets-from-1957_v2.csv",Encoding.Default);
+                fejlec = sorok.First();
+                var firstElvalaszto = fejlec.IndexOf(';');
+                fejlec = fejlec.Substring(firstElvalaszto + 1);
 
                 for (int i = 1; i < sorok.Length; i++)
                 {
@@ -80,7 +84,7 @@ namespace Rockets
 
             //Készítsünk keresést a rakéta neve szerint, kis és nagybetűk ne legyenek 
             //megkülönböztetve, tartalmazást vizsgáljon
-
+            Console.Write("A keresett rakéta neve:");
             var keresettRaketaNev = Console.ReadLine();
 
             var keresesEredmeny = rockets.FindAll(x => x.Name.ToLower().Contains(keresettRaketaNev.ToLower()));
@@ -98,6 +102,32 @@ namespace Rockets
 
             //A keresés eredményét (ha van) írassuk ki fájlba!
             //A fájlnevet kérjük be, a kiterjesztés .txt legyen!
+
+            Console.Write("A fájl neve:");
+            var fajlNev = Console.ReadLine();
+            fajlNev = fajlNev.Split('.')[0];
+            fajlNev += ".txt";
+
+            try
+            {
+                FileStream fajl = new FileStream(fajlNev, FileMode.Create);
+                StreamWriter writer = new StreamWriter(fajl,Encoding.Default);
+                if (fejlec.Length>0)
+                {
+                    writer.WriteLine(fejlec);
+                }
+                foreach (var i in keresesEredmeny)
+                {
+                    writer.WriteLine($"{i.Name};{i.Company};{i.Wiki};{i.Status};{i.LiftoffThrust};{i.PayloadLEO};{i.Stages};{i.StrapOns};{i.RocketHeight};{i.Price};{i.PayloadGTO};{i.FairingDiameter};{i.FairingHeight}");
+                }
+                writer.Close();
+                Console.WriteLine("Fájlba írás kész!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
+            }
+
 
             Console.ReadKey();
         }
