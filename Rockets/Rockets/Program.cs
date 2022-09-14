@@ -37,6 +37,32 @@ namespace Rockets
             //    Console.WriteLine($"{i.Price} million");
             //}
 
+            //A legmagasabb rakéta adatait határozzuk meg
+            //1 elem(?)
+
+            var legMagasabb = rockets.Find(x => x.RocketHeight == rockets.Max(y=>y.RocketHeight));
+
+            if (legMagasabb!=null)
+            {
+                Console.WriteLine($"Magasság:{legMagasabb.RocketHeight},{legMagasabb.Name},{legMagasabb.Status}");
+            } else
+            {
+                Console.WriteLine("Nincs a feltételnek megfelelő elem!");
+            }
+            //A legkisebb rakéta adatai
+            var noNullHeight = rockets.FindAll(x => x.RocketHeight != -1);
+
+            var minRocket = noNullHeight.Find(x => x.RocketHeight == noNullHeight.Min(y => y.RocketHeight));
+
+            Console.WriteLine($@"Név:{minRocket.Name}
+            Ár:{minRocket.Price}
+            Magasság:{minRocket.RocketHeight}
+            Fokozatok száma:{minRocket.Stages}
+            Átmérő:{minRocket.FairingDiameter}");
+
+
+
+
             Console.ReadKey();
         }
     }
