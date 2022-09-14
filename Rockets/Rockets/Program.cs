@@ -75,11 +75,29 @@ namespace Rockets
 
             foreach (var i in statusStagesStat)
             {
-                Console.WriteLine($"{i.Key.Status},{i.Key.Stages}:{i.Count()},{i.Max(x=>x.RocketHeight)}");
+                Console.WriteLine($"{i.Key.Status},{i.Key.Stages}:{i.Count()},{i.Max(x => x.RocketHeight)}");
             }
 
             //Készítsünk keresést a rakéta neve szerint, kis és nagybetűk ne legyenek 
             //megkülönböztetve, tartalmazást vizsgáljon
+
+            var keresettRaketaNev = Console.ReadLine();
+
+            var keresesEredmeny = rockets.FindAll(x => x.Name.ToLower().Contains(keresettRaketaNev.ToLower()));
+
+            if (keresesEredmeny.Count>0)
+            {
+                foreach (var i in keresesEredmeny)
+                {
+                    Console.WriteLine(i.Name);
+                } 
+            } else
+            {
+                Console.WriteLine("Nincs ilyen nevű rakéta!");
+            }
+
+            //A keresés eredményét (ha van) írassuk ki fájlba!
+            //A fájlnevet kérjük be, a kiterjesztés .txt legyen!
 
             Console.ReadKey();
         }
