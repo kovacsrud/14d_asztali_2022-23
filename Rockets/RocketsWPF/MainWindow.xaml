@@ -6,11 +6,71 @@
         xmlns:local="clr-namespace:RocketsWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <DataGrid x:Name="datagridRockets" ColumnWidth="*"/>
-    </Grid>
+    <TabControl>
+        <TabItem Header="Alap adatok">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <DataGrid x:Name="datagridRockets" ColumnWidth="*"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Adatkötés">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <DataGrid x:Name="datagridRocketsBind" ItemsSource="{Binding Rockets}" ColumnWidth="*" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Rakéta neve" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Gyártó cég neve" Binding="{Binding Company}" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Státusz:" />
+                                        <TextBlock Text="{Binding Status}" Grid.Column="1" />
+                                        <TextBlock Text="Fokozatok:"  Grid.Row="1"/>
+                                        <TextBlock Text="{Binding Stages}" Grid.Row="1" Grid.Column="1" />
+                                        <TextBlock Text="Segédhajtóművek:"  Grid.Row="2"/>
+                                        <TextBlock Text="{Binding StrapOns}" Grid.Row="2" Grid.Column="1" />
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                      
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Keresés">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <DataGrid x:Name="datagridSearch" ColumnWidth="*"/>
+
+                <WrapPanel Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                 <TextBox x:Name="textboxKeresettAdat" Width="300" Margin="0,0,10,0" FontSize="28"/>
+                 <Button x:Name="buttonKeres" Content="Keresés" FontSize="30" Click="buttonKeres_Click"/>
+                </WrapPanel>
+            </Grid>
+
+        </TabItem>
+        
+    </TabControl>
+    
 </Window>

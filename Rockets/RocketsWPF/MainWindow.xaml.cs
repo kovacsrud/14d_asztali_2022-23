@@ -26,8 +26,10 @@ namespace RocketsWPF
             InitializeComponent();
             try
             {
+                
                 rocketDataContext = new RocketDataContext();
-                datagridRockets.ItemsSource = rocketDataContext.rockets.Rockets;
+                DataContext = rocketDataContext;
+                datagridRockets.ItemsSource = rocketDataContext.Rockets;
                 //MessageBox.Show(rocketDataContext.rockets.Rockets.Count.ToString());
             }
             catch (Exception ex)
@@ -36,6 +38,25 @@ namespace RocketsWPF
             }
             
             
+        }
+
+        private void buttonKeres_Click(object sender, RoutedEventArgs e)
+        {
+            //Megegyezés vizsgálata
+            //var result = rocketDataContext.Rockets.FindAll(x=>x.Name.ToLower()==textboxKeresettAdat.Text.ToLower());
+            //Tartalmazás vizsgálata
+            datagridSearch.ItemsSource = null;
+
+            var result = rocketDataContext.Rockets.FindAll(x => x.Name.ToLower().Contains(textboxKeresettAdat.Text.ToLower()));
+
+            if (result.Count>0)
+            {
+                datagridSearch.ItemsSource = result;
+
+            } else
+            {
+                MessageBox.Show("Nincs a feltételnek megfelelő adat!");
+            }
         }
     }
 }
