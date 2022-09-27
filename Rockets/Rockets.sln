@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rockets", "Rockets\Rockets.csproj", "{F4606D38-D1B2-4590-AF6E-D555AC3389BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketsWPF", "RocketsWPF\RocketsWPF.csproj", "{87434FD0-C337-445F-A126-284D15A48209}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F4606D38-D1B2-4590-AF6E-D555AC3389BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4606D38-D1B2-4590-AF6E-D555AC3389BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4606D38-D1B2-4590-AF6E-D555AC3389BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87434FD0-C337-445F-A126-284D15A48209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87434FD0-C337-445F-A126-284D15A48209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87434FD0-C337-445F-A126-284D15A48209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87434FD0-C337-445F-A126-284D15A48209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
