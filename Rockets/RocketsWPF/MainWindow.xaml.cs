@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Rockets;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,11 @@ namespace RocketsWPF
                 DataContext = rocketDataContext;
                 datagridRockets.ItemsSource = rocketDataContext.Rockets;
                 //MessageBox.Show(rocketDataContext.rockets.Rockets.Count.ToString());
+                //https://en.wikipedia.org/wiki/Tsyklon-3
+                //webBrowserWiki = new WebBrowser();
+                
+                
+                
             }
             catch (Exception ex)
             {
@@ -56,6 +63,41 @@ namespace RocketsWPF
             } else
             {
                 MessageBox.Show("Nincs a feltételnek megfelelő adat!");
+            }
+        }
+
+        private void datagridSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine(datagridSearch.SelectedItem);
+            Rocket rocket = (Rocket)datagridSearch.SelectedItem;
+            Debug.WriteLine(rocket.Wiki);
+            try
+            {
+                webBrowserWiki.Navigate(new Uri(rocket.Wiki));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void datagridSearch_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGrid grid = (DataGrid)sender;
+            
+            Debug.WriteLine(grid.SelectedItem);
+            Rocket rocket = (Rocket)grid.SelectedItem;
+            Debug.WriteLine(rocket.Wiki);
+            try
+            {
+                
+                    webBrowserWiki.Navigate(new Uri(rocket.Wiki));
+                
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

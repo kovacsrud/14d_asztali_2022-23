@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RocketsWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="ThreeDBorderWindow">
     <TabControl>
         <TabItem Header="Alap adatok">
             <Grid>
@@ -20,6 +20,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <DataGrid x:Name="datagridRocketsBind" ItemsSource="{Binding Rockets}" ColumnWidth="*" AutoGenerateColumns="False">
@@ -61,7 +62,7 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <DataGrid x:Name="datagridSearch" ColumnWidth="*"/>
+                <DataGrid x:Name="datagridSearch" ColumnWidth="*"  MouseDoubleClick="datagridSearch_MouseDoubleClick"  />
 
                 <WrapPanel Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
                  <TextBox x:Name="textboxKeresettAdat" Width="300" Margin="0,0,10,0" FontSize="28"/>
@@ -70,7 +71,12 @@
             </Grid>
 
         </TabItem>
+        <TabItem Header="Weboldal">
+            <WebBrowser x:Name="webBrowserWiki"></WebBrowser>
+        </TabItem>
+        
         
     </TabControl>
+    
     
 </Window>
