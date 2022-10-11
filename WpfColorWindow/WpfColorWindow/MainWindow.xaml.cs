@@ -29,6 +29,12 @@ namespace WpfColorWindow
             listboxPlay.Items.Add("media4.mp3");
             listboxPlay.Items.Add("media5.mp3");
             listboxPlay.Items.Add("media6.mp3");
+            listboxPlay.Items.Add("media1.mp3");
+            listboxPlay.Items.Add("media2.mp3");
+            listboxPlay.Items.Add("media3.mp3");
+            listboxPlay.Items.Add("media4.mp3");
+            listboxPlay.Items.Add("media5.mp3");
+            listboxPlay.Items.Add("media6.mp3");
         }
 
         private void rectHeader_MouseDown(object sender, MouseButtonEventArgs e)

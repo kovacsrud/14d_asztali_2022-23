@@ -53,7 +53,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <ListBox x:Name="listboxPlay" Grid.Row="2" Grid.ColumnSpan="3" Margin="20"/>
+        <ListBox x:Name="listboxPlay" ItemContainerStyle="{StaticResource _ListboxItemStyle}" Style="{StaticResource _ListboxStyle}" Grid.Row="2" Grid.ColumnSpan="3" Margin="20"/>
 
 
     </Grid>
