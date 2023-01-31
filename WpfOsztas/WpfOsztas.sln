@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfOsztas", "WpfOsztas\WpfOsztas.csproj", "{5837D988-A8F9-4E5F-B5F8-E6E7B8F4B4AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osztasteszt", "Osztasteszt\Osztasteszt.csproj", "{5A82E51C-D09A-45A5-940A-7BB117B06489}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5837D988-A8F9-4E5F-B5F8-E6E7B8F4B4AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5837D988-A8F9-4E5F-B5F8-E6E7B8F4B4AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5837D988-A8F9-4E5F-B5F8-E6E7B8F4B4AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5837D988-A8F9-4E5F-B5F8-E6E7B8F4B4AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A82E51C-D09A-45A5-940A-7BB117B06489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A82E51C-D09A-45A5-940A-7BB117B06489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A82E51C-D09A-45A5-940A-7BB117B06489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A82E51C-D09A-45A5-940A-7BB117B06489}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {547142D0-02C6-4874-814A-12C590099144}
+	EndGlobalSection
+EndGlobal
