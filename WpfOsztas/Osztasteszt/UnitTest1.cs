@@ -50,7 +50,7 @@ namespace Osztasteszt
 
         
         [Test]
-        [TestCase(15,5,4)]
+        [TestCase(15,5,5)]
         [TestCase(25,5,5)]
         [TestCase(12.678,8.577,1.47813921)]
         public void Test1(double a,double b,double elvart)
