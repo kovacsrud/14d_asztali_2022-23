@@ -22,21 +22,24 @@ namespace WpfMagyarVarosok
     /// </summary>
     public partial class MainWindow : Window
     {
-        magyar_telepulesekContext telepulesekContext;
+        //magyar_telepulesekContext telepulesekContext;
+        ContextAdapter contextAdapter;
         public MainWindow()
         {
             InitializeComponent();
-            telepulesekContext = new magyar_telepulesekContext();
-            telepulesekContext.Telepulesek.Load();
-            telepulesekContext.Jogallas.Load();
-            telepulesekContext.Megyek.Load();
-            datagridJogallas.ItemsSource = telepulesekContext.Jogallas.Local.ToObservableCollection();
-            datagridMegyek.ItemsSource = telepulesekContext.Megyek.Local.ToObservableCollection();
-            datagridTelepulesek.ItemsSource = telepulesekContext.Telepulesek.Local.ToObservableCollection();
+            contextAdapter = new ContextAdapter();
+            
+            //telepulesekContext = new magyar_telepulesekContext();
+            //telepulesekContext.Telepulesek.Load();
+            //telepulesekContext.Jogallas.Load();
+            //telepulesekContext.Megyek.Load();
+            //datagridJogallas.ItemsSource = telepulesekContext.Jogallas.Local.ToObservableCollection();
+            //datagridMegyek.ItemsSource = telepulesekContext.Megyek.Local.ToObservableCollection();
+            //datagridTelepulesek.ItemsSource = telepulesekContext.Telepulesek.Local.ToObservableCollection();
 
             
 
-            DataContext = telepulesekContext;
+            DataContext = contextAdapter;
         }
     }
 }

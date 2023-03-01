@@ -9,7 +9,7 @@
     <Grid>
         <TabControl>
             <TabItem Header="Megyék">
-                <DataGrid x:Name="datagridMegyek" AutoGenerateColumns="False" ColumnWidth="*">
+                <DataGrid x:Name="datagridMegyek" ItemsSource="{Binding Megyek}" AutoGenerateColumns="False" ColumnWidth="*">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Kód" Binding="{Binding Kod}"/>
                         <DataGridTextColumn Header="Név" Binding="{Binding Nev}"/>
@@ -17,7 +17,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Jogállás">
-                <DataGrid x:Name="datagridJogallas"   AutoGenerateColumns="False" ColumnWidth="*">
+                <DataGrid x:Name="datagridJogallas" ItemsSource="{Binding Jogallasok}"  AutoGenerateColumns="False" ColumnWidth="*">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Súly" Binding="{Binding Suly}"/>
                         <DataGridTextColumn Header="Jogállás" Binding="{Binding Jogallas1}"/>
@@ -26,11 +26,17 @@
 
             </TabItem>
             <TabItem Header="Települések">
-                <DataGrid x:Name="datagridTelepulesek" AutoGenerateColumns="False" ColumnWidth="*">
+                <DataGrid x:Name="datagridTelepulesek" ItemsSource="{Binding Telepulesek}" AutoGenerateColumns="False" ColumnWidth="*">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Irányítószám" Binding="{Binding Irszam}" />
                         <DataGridTextColumn Header="Helységnév" Binding="{Binding Nev}" />
                         <DataGridTextColumn Header="Jogállás" Binding="{Binding JogallasNavigation.Jogallas1}" />
+                        <DataGridTextColumn Header="Lat" Binding="{Binding Lat}" />
+                        <DataGridTextColumn Header="Long" Binding="{Binding Long}" />
+                        <DataGridTextColumn Header="Ksh kód" Binding="{Binding Kshkod}" />
+                        <DataGridTextColumn Header="Terület" Binding="{Binding Terulet}" />
+                        <DataGridTextColumn Header="Népesség" Binding="{Binding Nepesseg}" />
+                        <DataGridTextColumn Header="Lakások" Binding="{Binding Lakasok}" />
                         <DataGridTextColumn Header="Megye" Binding="{Binding MegyekodNavigation.Nev}" />
                     </DataGrid.Columns>
                 </DataGrid>
