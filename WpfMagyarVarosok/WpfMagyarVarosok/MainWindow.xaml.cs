@@ -41,5 +41,22 @@ namespace WpfMagyarVarosok
 
             DataContext = contextAdapter;
         }
+
+        private void DbUpdate()
+        {
+            var muvelet = contextAdapter.context.SaveChanges();
+            if (muvelet>0)
+            {
+                MessageBox.Show("Adatok mentve");
+            } else
+            {
+                MessageBox.Show("Nincs változás!");
+            }
+        }
+
+        private void buttonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            DbUpdate();
+        }
     }
 }
