@@ -31,7 +31,7 @@
 
             </TabItem>
             <TabItem Header="Települések">
-                <DataGrid x:Name="datagridTelepulesek" ItemsSource="{Binding Telepulesek}" AutoGenerateColumns="False" ColumnWidth="*">
+                <DataGrid x:Name="datagridTelepulesek" ItemsSource="{Binding Telepulesek}" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Irányítószám" Binding="{Binding Irszam}" />
                         <DataGridTextColumn Header="Helységnév" Binding="{Binding Nev}" />
