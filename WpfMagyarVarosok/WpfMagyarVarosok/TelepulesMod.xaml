@@ -30,7 +30,7 @@
         <TextBlock Text="Település neve" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" />
         <TextBox x:Name="textboxNev" FontSize="20" Width="250" Height="28" Grid.Row="1" Grid.Column="1" />
         <TextBlock Text="Megye" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
-        <ComboBox x:Name="comboboxMegye" FontSize="20" Width="250" Height="28" Grid.Row="2" Grid.Column="1" />
+        <ComboBox x:Name="comboboxMegye" ItemsSource="{Binding Megyek}" DisplayMemberPath="Nev" SelectedValuePath="Kod" FontSize="20" Width="250" Height="28" Grid.Row="2" Grid.Column="1" />
         <TextBlock Text="Latitude" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" />
         <TextBox x:Name="textboxLat" FontSize="20" Width="250" Height="28" Grid.Row="3" Grid.Column="1" />
         <TextBlock Text="Longitude" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" />
@@ -38,14 +38,14 @@
         <TextBlock Text="Ksh kód" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" />
         <TextBox x:Name="textboxKshkod" FontSize="20" Width="250" Height="28" Grid.Row="5" Grid.Column="1" />
         <TextBlock Text="Jogállás" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="6" />
-        <ComboBox x:Name="comboboxJogallas" FontSize="20" Width="250" Height="28" Grid.Row="6" Grid.Column="1" />
+        <ComboBox x:Name="comboboxJogallas" ItemsSource="{Binding Jogallasok}" DisplayMemberPath="Jogallas1" SelectedValuePath="Suly" FontSize="20" Width="250" Height="28" Grid.Row="6" Grid.Column="1" />
         <TextBlock Text="Terület" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="7" />
         <TextBox x:Name="textboxTerulet" FontSize="20" Width="250" Height="28" Grid.Row="7" Grid.Column="1" />
         <TextBlock Text="Népesség" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="8" />
         <TextBox x:Name="textboxNepesseg" FontSize="20" Width="250" Height="28" Grid.Row="8" Grid.Column="1" />
         <TextBlock Text="Lakások" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="9" />
         <TextBox x:Name="textboxLakasok" FontSize="20" Width="250" Height="28" Grid.Row="9" Grid.Column="1" />
-        <Button x:Name="buttonModosit" Content="Módosítás" Width="250" Height="30" FontSize="16" Grid.Row="10" Grid.ColumnSpan="2" />
+        <Button x:Name="buttonModosit" Content="Módosítás" Width="250" Height="30" FontSize="16" Grid.Row="10" Grid.ColumnSpan="2" Click="buttonModosit_Click" />
 
     </Grid>
 </Window>

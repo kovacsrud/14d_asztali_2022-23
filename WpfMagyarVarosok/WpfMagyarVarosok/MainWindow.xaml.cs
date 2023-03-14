@@ -24,7 +24,7 @@ namespace WpfMagyarVarosok
     public partial class MainWindow : Window
     {
         //magyar_telepulesekContext telepulesekContext;
-        ContextAdapter contextAdapter;
+        public ContextAdapter contextAdapter;
         public MainWindow()
         {
             InitializeComponent();
