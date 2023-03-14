@@ -25,6 +25,16 @@ namespace WpfMagyarVarosok
             InitializeComponent();
             selectedTelepules = telepules;
             mainWindow = mainwindow;
+            textboxIrszam.Text = selectedTelepules.Irszam.ToString();
+            textboxNev.Text = selectedTelepules.Nev;
+            comboboxMegye.SelectedValue = selectedTelepules.Megyekod;
+            textboxLat.Text = selectedTelepules.Lat.ToString();
+            textboxLong.Text = selectedTelepules.Long.ToString();
+            textboxKshkod.Text = selectedTelepules.Kshkod;
+            comboboxJogallas.SelectedValue = selectedTelepules.Jogallas;
+            textboxTerulet.Text = selectedTelepules.Terulet.ToString();
+            textboxNepesseg.Text = selectedTelepules.Nepesseg.ToString();
+            textboxLakasok.Text = selectedTelepules.Lakasok.ToString();
         }
     }
 }
